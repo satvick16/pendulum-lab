@@ -14,7 +14,7 @@ with open("maxes_formatted_data.txt", "w") as f:
     f.close()
 
 initial_amplitude = 4.7
-target_amplitude = 4.7 * (math.e ** (-1 * math.pi / 4))
+target_amplitude = 4.7 * (math.e ** (-1 * math.pi / 6))
 
 maxes_file = open("maxes_formatted_data.txt", "r")
 maxes = maxes_file.readlines()
@@ -27,6 +27,6 @@ for line in maxes:
         index = maxes.index(line) + 1
         periods = float(index / 3)
         print("number of periods elapsed = ", periods)
-        q = periods * 4
+        q = periods * 6
         print("Q = ", q)
         break

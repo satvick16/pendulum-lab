@@ -84,9 +84,9 @@ ax1.errorbar(xdata, ydata, yerr=yerror, xerr=xerror, fmt=".")
 ax1.plot(xs, curve)
 # plot the best fit curve on top of the data points as a line
 
-ax1.set_xlabel("xdata")
-ax1.set_ylabel("ydata")
-ax1.set_title("Best fit of some data points")
+ax1.set_xlabel("time (s)")
+ax1.set_ylabel("angular displacement (degrees)", fontsize=14)
+ax1.set_title("Best fit of some data points", fontsize=14)
 # HERE is where you change how your graph is labelled
 
 
@@ -107,10 +107,15 @@ ax2.errorbar(xdata, residual, yerr=yerror, xerr=xerror, fmt=".")
 ax2.plot(zerolinex, zeroliney)
 # plotnthe y=0 line on top
 
-ax2.set_xlabel("xdata")
-ax2.set_ylabel("residuals of ydata")
-ax2.set_title("Residuals of the fit")
+ax2.set_xlabel("time")
+ax2.set_ylabel("residuals of angular displacement data", fontsize=14)
+ax2.set_title("Residuals of the fit", fontsize=14)
 # HERE is where you change how your graph is labelled
+
+ax1.legend(
+    ["mathematical fit using damped oscillation model", "actual data points"])
+
+ax2.legend(["zero line", "residuals with error bars"])
 
 plt.show()
 # show the graph
