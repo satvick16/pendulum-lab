@@ -21,21 +21,22 @@ residuals = []
 for key, value in experimental.items():
     residuals.append(abs(base - value))
 
-m, b = np.polyfit(mass, residuals, 1)
-
-plt.subplot(2, 1, 1)
+plt.subplot(1, 2, 1)
 plt.scatter(mass, residuals, label="residuals")
 plt.title("Residuals against predicted model (T = 2*pi*sqrt(L/g))")
 plt.xlabel("Mass (grams)")
-plt.xlabel("Period (seconds)")
+plt.ylabel("Period (seconds)")
 
-plt.subplot(2, 1, 2)
+plt.subplot(1, 2, 2)
 plt.scatter(list(experimental.keys()), list(
     experimental.values()), label="raw data")
 plt.title("Period vs. mass")
 plt.ylim(0, 2)
 plt.xlabel("Mass (grams)")
-plt.xlabel("Period (seconds)")
+plt.ylabel("Period (seconds)")
+
+m, b = np.polyfit(list(experimental.keys()), list(experimental.values()), 1)
+print(f"slope = {m}")
 
 plt.tight_layout()
 
